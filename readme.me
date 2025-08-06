@@ -1,0 +1,98 @@
+# 📝 Basic FastAPI To-Do App (Beginner Friendly)
+
+This is a beginner-level project using **FastAPI** to build a simple **To-Do List REST API** with in-memory data storage (no database required).  
+It demonstrates how to set up basic CRUD operations with clean separation of concerns using FastAPI's modular structure.
+
+---
+
+## 📁 Project Structure
+
+todo_notes_api/
+├── main.py # Starts the FastAPI app and includes router
+├── controller.py # Defines all API endpoints (GET, POST, PUT, DELETE)
+├── models.py # Defines the ToDo data model using Pydantic
+├── services.py # Business logic (how data is stored, updated, deleted)
+└── README.md # Project documentation (you're here!)
+
+yaml
+Copy
+Edit
+
+---
+
+## 🧱 Description of Each File
+
+- **`main.py`**  
+  Starts the FastAPI app, adds the router, and defines the root `/` endpoint.
+
+- **`controller.py`**  
+  Defines the routes like `/todos`, `/todos/{id}` and maps them to logic functions in `services.py`.
+
+- **`models.py`**  
+  Defines the structure of a `Todo` item using `Pydantic`, including fields like `id`, `title`, `description`, and `completed`.
+
+- **`services.py`**  
+  Contains the actual logic to handle storing, updating, and deleting todos — using an in-memory list (not a database).
+
+---
+
+## 🚀 How to Run the App
+
+### Step 1: Install dependencies
+
+```bash
+pip install fastapi uvicorn
+Step 2: Run the server
+bash
+Copy
+Edit
+uvicorn main:app --reload
+Step 3: Access the API in your browser
+Open: http://127.0.0.1:8000 → root endpoint
+
+Try: http://127.0.0.1:8000/docs → Swagger UI for testing
+
+🔗 Available API Endpoints
+Method	Endpoint	Description
+GET	/	Welcome message
+GET	/todos	Get all todos
+GET	/todos/{id}	Get a specific todo
+POST	/todos	Create a new todo
+PUT	/todos/{id}	Update a todo
+DELETE	/todos/{id}	Delete a todo
+
+📦 Sample POST /todos Request
+Use Swagger UI or Postman to send:
+
+json
+Copy
+Edit
+{
+  "id": 1,
+  "title": "Learn FastAPI",
+  "description": "Build a simple API project",
+  "completed": false
+}
+🧪 Sample PUT /todos/1 Request
+json
+Copy
+Edit
+{
+  "id": 1,
+  "title": "Learn FastAPI - Updated",
+  "description": "Updated description",
+  "completed": true
+}
+🎯 Learning Outcomes
+Understand the FastAPI framework and project structure
+
+Use Pydantic models for input/output validation
+
+Separate API routes and logic cleanly using routers and service layers
+
+Use Swagger UI for testing APIs without extra tools
+
+Gain confidence with basic CRUD API development
+
+🙌 Credits
+Built with ❤️ using FastAPI by [Anurag Nalapur, Monisha, Sunny]
